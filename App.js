@@ -82,7 +82,9 @@ export default function App() {
 
         <Line />
 
-        <Coments />
+        <View style={styles.coments}>
+          <Coments />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -110,5 +112,8 @@ const styles = StyleSheet.create({
   tagTitle: {
     fontWeight: fontWeights.xl,
     fontSize: 17,
+  },
+  coments: {
+    marginHorizontal: 16,
   },
 });
