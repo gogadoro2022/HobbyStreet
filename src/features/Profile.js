@@ -8,7 +8,7 @@ export const Profile = () => {
 
   return (
     <View style={styles.container}>
-      <Avatar />
+      <Avatar style={{width: 36, height: 36}} />
       <Text style={styles.username}>{username}</Text>
     </View>
   );

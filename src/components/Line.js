@@ -1,14 +1,13 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
-export const Line = () => {
-  return <View style={styles.line}></View>;
+export const Line = ({style = {}}) => {
+  return <View style={[styles.line, style]}></View>;
 };
 
 const styles = StyleSheet.create({
   line: {
     backgroundColor: '#E7E7E7',
-    margin: 16,
     height: 1,
   },
 });

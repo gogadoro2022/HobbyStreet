@@ -3,15 +3,15 @@ import {FlatList, StyleSheet, Text, View} from 'react-native';
 import {fontWeights} from '../utils/sizes';
 
 export const EachTag = ({item}) => {
+  const items = item.content;
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{item.title}</Text>
-      <FlatList
-        data={item.content}
-        renderItem={eachContent => (
-          <Text style={styles.content}>{eachContent.item}</Text>
-        )}
-      />
+      <View>
+        {items.map(item => (
+          <Text style={styles.content}>{item}</Text>
+        ))}
+      </View>
     </View>
   );
 };

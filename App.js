@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -15,8 +15,11 @@ import {Line} from './src/components/Line';
 import {Profile} from './src/features/Profile';
 import {fontWeights} from './src/utils/sizes';
 import {Coments} from './src/features/Coments';
+import NavigationBar from './src/features/NavigationBar';
 
 export default function App() {
+  const [followed, setFollowed] = useState(false);
+
   return (
     <SafeAreaView>
       <ScrollView>
@@ -33,30 +36,49 @@ export default function App() {
 
         <View style={styles.AuthorContainer}>
           <Profile />
-          <CustomButton
-            style={{
-              width: 69,
-              height: 30,
-              borderRadius: 8,
-              backgroundColor: '#FF4D77',
-            }}
-            title={'팔로우'}
-            textStyle={{
-              color: '#FFFFFF',
-              fontSIze: 14,
-              fontWeight: fontWeights.xl,
-            }}
-          />
+          {followed ? (
+            <CustomButton
+              style={{
+                width: 84,
+                height: 30,
+                borderRadius: 8,
+                backgroundColor: '#777775',
+              }}
+              title={'팔로우 중'}
+              textStyle={{
+                color: '#FFFFFF',
+                fontSIze: 14,
+                fontWeight: fontWeights.xl,
+              }}
+              onPress={() => setFollowed(false)}
+            />
+          ) : (
+            <CustomButton
+              style={{
+                width: 69,
+                height: 30,
+                borderRadius: 8,
+                backgroundColor: '#FF4D77',
+              }}
+              title={'팔로우'}
+              textStyle={{
+                color: '#FFFFFF',
+                fontSIze: 14,
+                fontWeight: fontWeights.xl,
+              }}
+              onPress={() => setFollowed(true)}
+            />
+          )}
         </View>
 
-        <Line />
+        <Line style={{margin: 16}} />
 
         <View style={{marginHorizontal: 16, marginBottom: 4}}>
           <Text style={styles.tagTitle}>한 눈에 보는 CORCTAIL NAME</Text>
           <Tags />
         </View>
 
-        <Line />
+        <Line style={{margin: 16}} />
 
         <View style={{marginHorizontal: 16, marginBottom: 16}}>
           <UserArticle />
@@ -64,27 +86,47 @@ export default function App() {
 
         <View style={styles.AuthorContainer}>
           <Profile />
-          <CustomButton
-            style={{
-              width: 69,
-              height: 30,
-              borderRadius: 8,
-              backgroundColor: '#FF4D77',
-            }}
-            title={'팔로우'}
-            textStyle={{
-              color: '#FFFFFF',
-              fontSIze: 14,
-              fontWeight: fontWeights.xl,
-            }}
-          />
+          {followed ? (
+            <CustomButton
+              style={{
+                width: 84,
+                height: 30,
+                borderRadius: 8,
+                backgroundColor: '#777775',
+              }}
+              title={'팔로우 중'}
+              textStyle={{
+                color: '#FFFFFF',
+                fontSIze: 14,
+                fontWeight: fontWeights.xl,
+              }}
+              onPress={() => setFollowed(false)}
+            />
+          ) : (
+            <CustomButton
+              style={{
+                width: 69,
+                height: 30,
+                borderRadius: 8,
+                backgroundColor: '#FF4D77',
+              }}
+              title={'팔로우'}
+              textStyle={{
+                color: '#FFFFFF',
+                fontSIze: 14,
+                fontWeight: fontWeights.xl,
+              }}
+              onPress={() => setFollowed(true)}
+            />
+          )}
         </View>
 
-        <Line />
+        <Line style={{margin: 16}} />
 
         <View style={styles.coments}>
           <Coments />
         </View>
+        <NavigationBar />
       </ScrollView>
     </SafeAreaView>
   );
@@ -115,5 +157,6 @@ const styles = StyleSheet.create({
   },
   coments: {
     marginHorizontal: 16,
+    // marginBottom: 8,
   },
 });
